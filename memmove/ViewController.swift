@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        // cleanup cache
         SDImageCache.shared.clearMemory()
         SDImageCache.shared.clearDisk {
             // do nothing
@@ -74,7 +75,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        Timer.publish(every: 0.01, on: .main, in: .common)
+        Timer.publish(every: 0.03, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 guard let self = self else { return }
