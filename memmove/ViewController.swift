@@ -55,7 +55,8 @@ class ViewController: UIViewController {
                 //cell.id = id
                 cell.animatedImageView.sd_setImage(
                     with: url,
-                    placeholderImage: .placeholder(color: .systemFill)
+                    placeholderImage: .placeholder(color: .systemFill),
+                    options: .preloadAllFrames      // <<<< workaround works ???
                 )
             }
             return cell
